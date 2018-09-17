@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.internal.JsonToMobileElementConverter;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.windows.WindowsDriver;
 import nl.hsac.fitnesse.fixture.util.selenium.caching.CachingRemoteWebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -26,7 +27,10 @@ public class MobileElementConverter extends JsonToMobileElementConverter {
             return createIOSElement();
         } else if (driver instanceof AndroidDriver) {
             return createAndroidElement();
-        } else {
+        } else if (driver instanceof WindowsDriver) {
+            return createWindowsElement();
+        }
+        else {
             return createOtherNewElement();
         }
     }
@@ -37,6 +41,10 @@ public class MobileElementConverter extends JsonToMobileElementConverter {
 
     protected RemoteWebElement createAndroidElement() {
         return new HsacAndroidElement();
+    }
+
+    protected RemoteWebElement createWindowsElement() {
+        return new HsacWindowsElement();
     }
 
     protected RemoteWebElement createOtherNewElement() {
