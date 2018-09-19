@@ -38,31 +38,30 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <fitnesse.version>20171221</fitnesse.version>
-        <hsac.fixtures.version>3.24.0</hsac.fixtures.version>
-        <appium.version>5.0.4</appium.version>
+        <fitnesse.version>20180817</fitnesse.version>
+        <hsac.fixtures.version>3.27.2</hsac.fixtures.version>
+        <appium.version>6.0.0</appium.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <!-- Ensure appium dependency does not overrule the selenium api version used -->
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-api</artifactId>
-                <version>3.12.0</version>
+                <version>3.14.0</version>
             </dependency>
             <dependency>
-                <!-- Ensure appium dependency does not overrule the selenium api version used -->
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-support</artifactId>
-                <version>3.12.0</version>
+                <version>3.14.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
+
     <dependencies>
         <dependency>
-            <groupId>org.fitnesse</groupId>
+            <groupId>com.github.tcnh</groupId>
             <artifactId>fitnesse</artifactId>
             <version>${fitnesse.version}</version>
             <scope>provided</scope>
