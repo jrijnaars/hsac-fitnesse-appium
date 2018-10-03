@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WindowsAppTest extends MobileTest<WindowsElement, WindowsDriver<WindowsElement>> {
-    private int delayAfterClickInMillis = 300;
+    private int delayAfterClickInMillis = 0;
 
     public WindowsAppTest() {
         super();
@@ -37,7 +37,7 @@ public class WindowsAppTest extends MobileTest<WindowsElement, WindowsDriver<Win
     @Override
     protected boolean clickImp(String place, String container) {
         boolean result = super.clickImp(place, container);
-        if(result) {
+        if(result && delayAfterClickInMillis > 0) {
             waitMilliseconds(delayAfterClickInMillis);
         }
         return result;
@@ -46,7 +46,7 @@ public class WindowsAppTest extends MobileTest<WindowsElement, WindowsDriver<Win
     @Override
     protected boolean doubleClick(WebElement element) {
         boolean result = super.doubleClick(element);
-        if(result) {
+        if(result && delayAfterClickInMillis > 0) {
             waitMilliseconds(delayAfterClickInMillis);
         }
         return result;
